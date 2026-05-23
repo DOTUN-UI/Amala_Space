@@ -72,3 +72,36 @@ form.addEventListener('submit', (e) => {
   showMsg("Message sent! We'll get back to you soon.", 'success');
   form.reset();
 });
+
+// Back to top button
+const backToTop = document.createElement('button');
+backToTop.innerText = '↑';
+backToTop.id = 'backToTop';
+document.body.appendChild(backToTop);
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTop.classList.add('show');
+    } else {
+        backToTop.classList.remove('show');
+    }
+});
+
+backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Dark mode toggle
+const darkModeBtn = document.createElement('button');
+darkModeBtn.innerText = '🌙';
+darkModeBtn.id = 'darkModeToggle';
+document.querySelector('nav').appendChild(darkModeBtn);
+
+darkModeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
+        darkModeBtn.innerText = '☀️';
+    } else {
+        darkModeBtn.innerText = '🌙';
+    }
+});
