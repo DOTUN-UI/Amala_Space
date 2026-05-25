@@ -35,43 +35,45 @@ navMenu.querySelectorAll("a").forEach((link) => {
 
 // Form validation
 const form = document.querySelector(".contact-form");
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const emailInput = form.querySelector('input[type="email"]');
-  const messageInput = form.querySelector("textarea");
-  const email = emailInput.value.trim();
-  const message = messageInput.value.trim();
+if (form) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const emailInput = form.querySelector('input[type="email"]');
+    const messageInput = form.querySelector("textarea");
+    const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
 
-  form.querySelectorAll(".form-msg").forEach((el) => el.remove());
+    form.querySelectorAll(".form-msg").forEach((el) => el.remove());
 
-  const showMsg = (text, type) => {
-    const msg = document.createElement("p");
-    msg.className = `form-msg ${type}`;
-    msg.textContent = text;
-    form.appendChild(msg);
-    setTimeout(() => msg.remove(), 4000);
-  };
+    const showMsg = (text, type) => {
+      const msg = document.createElement("p");
+      msg.className = `form-msg ${type}`;
+      msg.textContent = text;
+      form.appendChild(msg);
+      setTimeout(() => msg.remove(), 4000);
+    };
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!email) {
-    showMsg("Please enter your email address.", "error");
-    emailInput.focus();
-    return;
-  }
-  if (!emailRegex.test(email)) {
-    showMsg("Please enter a valid email address.", "error");
-    emailInput.focus();
-    return;
-  }
-  if (!message) {
-    showMsg("Please enter a message.", "error");
-    messageInput.focus();
-    return;
-  }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+      showMsg("Please enter your email address.", "error");
+      emailInput.focus();
+      return;
+    }
+    if (!emailRegex.test(email)) {
+      showMsg("Please enter a valid email address.", "error");
+      emailInput.focus();
+      return;
+    }
+    if (!message) {
+      showMsg("Please enter a message.", "error");
+      messageInput.focus();
+      return;
+    }
 
-  showMsg("Message sent! We'll get back to you soon.", "success");
-  form.reset();
-});
+    showMsg("Message sent! We'll get back to you soon.", "success");
+    form.reset();
+  });
+}
 
 // Back to top button
 const backToTop = document.createElement("button");
@@ -108,6 +110,9 @@ darkModeBtn.addEventListener("click", () => {
 
 // Fetch and display posts from Supabase
 async function getPosts() {
+  const container = document.querySelector(".blog-container");
+  if (!container) return;
+
   const { data, error } = await supabaseClient
     .from("posts")
     .select("*")
@@ -118,8 +123,6 @@ async function getPosts() {
     console.error(error);
     return;
   }
-
-  const container = document.querySelector(".blog-container");
 
   container.innerHTML = data
     .map(
@@ -136,7 +139,6 @@ async function getPosts() {
     )
     .join("");
 
-  // Observe new cards after they're rendered
   const cards = document.querySelectorAll(".blog-card");
   const observer = new IntersectionObserver(
     (entries) => {
