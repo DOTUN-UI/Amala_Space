@@ -1,0 +1,211 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#password-gate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+#password-gate > h2 {
+  margin-bottom: 1rem;
+}
+#password-gate input {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  border-radius: 0.25rem;
+}
+#login-btn {
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+#login-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+#login-error {
+  color: red;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  text-transform: lowercase;
+}
+
+/* FORM CSS */
+#admin-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+#admin-panel > h2 {
+  width: 90%;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+#create-post-form {
+  border: 1px solid #b4b4b4;
+  box-shadow: rgba(184, 184, 184, 0.16) 0px 1px 4px;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#form-first-row {
+  display: grid;
+  gap: 4rem 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+}
+#form-first-row > div {
+  display: flex;
+  flex-direction: column;
+}
+#form-first-row label {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+#form-first-row input {
+  padding: 0.5rem;
+  border: 1px solid #b4b4b4;
+  border-radius: 0.25rem;
+}
+#form-image {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-top: 1rem;
+  align-items: end;
+  width: 100%;
+}
+#form-image > div {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+}
+#form-image > div > label {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+#form-image > div > input {
+  padding: 0.5rem;
+  border: 1px solid #b4b4b4;
+  border-radius: 0.25rem;
+}
+#upload-image-btn {
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+#upload-image-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+#current-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  width: 100%;
+}
+
+#form-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1rem;
+}
+#form-content label {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+#form-content textarea {
+  padding: 0.5rem;
+  border: 1px solid #b4b4b4;
+  border-radius: 0.25rem;
+  resize: vertical;
+}
+#form-submit-post-btn {
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+#form-submit-post-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+#form-submit-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 1rem;
+}
+@media (max-width: 768px) {
+  #admin-panel {
+    height: auto;
+    padding: 2rem 0;
+  }
+
+  #form-first-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  #form-image {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  #form-image > div {
+    width: 100%;
+  }
+
+  #upload-image-btn {
+    width: 100%;
+  }
+}
+#form-genre {
+  display: flex;
+  flex-direction: column;
+}
+
+#form-genre label {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+#form-genre select {
+  padding: 0.5rem;
+  border: 1px solid #b4b4b4;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  cursor: pointer;
+}
+.field-error {
+  color: red;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  min-height: 1rem;
+}

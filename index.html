@@ -1,103 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EchoSpace</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="Project.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="Project.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+  <body>
     <nav>
-        <h1>EchoSPace</h1>
-        <button class="hamburger" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-       <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="blog.html">Blogs</a></li>
-</ul>
+      <a href="index.html">
+        <h1>EchoSpace</h1>
+      </a>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blogs</a></li>
+      </ul>
     </nav>
 
-    <section class="blog">
-        <div class="blog-content">
-            <h2>Welcome to EchoSpace</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus quo vero labore sit possimus quis minima maiores eius non dignissimos aut ipsa odio quidem accusamus voluptate laboriosam, repellat similique corrupti?</p>
-        </div>
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Welcome to EchoSpace</h2>
+        <p>Your daily dose of sports, tech and entertainment news</p>
+        <a href="blog.html"><button>Explore Blogs</button></a>
+      </div>
     </section>
 
-    <section class="blog-container">
-        <div class="blog-card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ__0CsgCewDEQpFBodqwJ2lR9i51vO2Zt70fCPlALNURhJcmMhoS0mY-c&s" alt="">
-            <div class="blog-content">
-                <h3>Learn Whats Going on In The World</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem, ratione. Magnam esse nihil voluptatem, maxime, corrupti eum laboriosam animi ducimus blanditiis, voluptatibus harum vitae nostrum eaque laborum sequi reiciendis labore?</p>
-                <button>Read More</button>
-            </div>
-        </div>
-
-        <div class="blog-card">
-            <img src="https://www.orfonline.org/public/uploads/posts/image/thumbnail/India_Army.jpg" alt="">
-            <div class="blog-content">
-                <h3>Rising tensions between Russia and NATO countries are causing concern in Europe after drone and military incidents near the Baltics.</h3>
-                <p>Wars and geopolitical tensions, especially in the Middle East and Ukraine, continue affecting oil prices, trade, and global economies. Artificial intelligence is rapidly growing, driving technology investment worldwide. Climate change is causing extreme heat, floods, and environmental concerns. Inflation and economic uncertainty remain major global issues as governments and organizations respond.</p>
-                <button>Read More</button>
-            </div>
-        </div>
-
-        <div class="blog-card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjuY8MNwDn97i5gV7qI_UVYHp4UlkGbEhDPg&s" alt="">
-            <div class="blog-content">
-                <h3>Arsenal are Currently the Premier League Champions</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat possimus itaque, hic dolorem rerum, numquam perspiciatis dignissimos, animi culpa ipsam id voluptatum eveniet nihil quaerat placeat doloribus recusandae nisi quod.</p>
-                <button>Read More</button>
-            </div>
-        </div>
+    <section class="blog-container" id="blog-container">
+      <p id="loading">Loading posts...</p>
     </section>
 
     <footer>
-        <div class="footer-container">
-            <div>
-                <h2>EchoSPace</h2>
-                <p>EchoSPace is a fictional blog website created for tutorials and inspiration.</p>
-                <br>
-                <p><i class="fa-solid fa-square-phone"></i> +7041977344</p>
-                <p><i class="fa-solid fa-envelope"></i> nerfedcruz@gmail.com</p>
-                <div class="social-icons">
-                    <i class="fa-brands fa-square-facebook"></i>
-                    <i class="fa-brands fa-linkedin"></i>
-                    <i class="fa-brands fa-tiktok"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                </div>
-            </div>
-
-            <div class="footer-box footer-links">
-                <h2>Quick Links</h2>
-                <ul>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Contacts</a></li>
-                    <li><a href="#">Mentors</a></li>
-                    <li><a href="#">Galleries</a></li>
-                    <li><a href="#">Write for us</a></li>
-                    <li><a href="#">Terms and Conditions</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-box">
-                <h2>Contact Us</h2>
-                <form class="contact-form">
-                    <input type="email" placeholder="Your email address">
-                    <textarea rows="5" placeholder="Message"></textarea>
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
+      <div class="footer-container">
+        <div>
+          <h2>EchoSpace</h2>
+          <p>
+            EchoSpace is a fictional blog website created for tutorials and
+            inspiration.
+          </p>
+          <br />
+          <p><i class="fa-solid fa-square-phone"></i> +7041977344</p>
+          <p><i class="fa-solid fa-envelope"></i> nerfedcruz@gmail.com</p>
+          <div class="social-icons">
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-linkedin"></i>
+            <i class="fa-brands fa-tiktok"></i>
+            <i class="fa-brands fa-instagram"></i>
+          </div>
         </div>
+
+        <div class="footer-box footer-links">
+          <h2>Quick Links</h2>
+          <ul>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Contacts</a></li>
+            <li><a href="#">Mentors</a></li>
+            <li><a href="#">Galleries</a></li>
+            <li><a href="#">Write for us</a></li>
+            <li><a href="#">Terms and Conditions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-box">
+          <h2>Contact Us</h2>
+          <form class="contact-form">
+            <input type="email" placeholder="Your email address" />
+            <textarea rows="5" placeholder="Message"></textarea>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
     </footer>
 
+    <script src="supabase.js"></script>
     <script src="Project.js"></script>
-</body>
+  </body>
 </html>

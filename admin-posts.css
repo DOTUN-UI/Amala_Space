@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#password-gate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#password-gate > h2 {
+  margin-bottom: 1rem;
+}
+
+#password-gate input {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  border-radius: 0.25rem;
+}
+
+#login-btn {
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+#login-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+#login-error {
+  color: red;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+#admin-panel {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+#create-post-btn {
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+#create-post-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+#posts-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#posts-table th,
+#posts-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 0.9rem;
+}
+
+#posts-table th {
+  font-weight: bold;
+  background-color: #f9f9f9;
+}
+
+#posts-table img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+.delete-btn {
+  padding: 0.4rem 0.75rem;
+  background-color: #fff;
+  color: red;
+  border: 2px solid red;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 0.5rem;
+}
+
+.delete-btn:hover {
+  background-color: red;
+  color: #fff;
+}
+
+.edit-btn {
+  padding: 0.4rem 0.75rem;
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.edit-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  #admin-panel {
+    padding: 1rem;
+  }
+  /* TO HIDE THE FIRST COLUMN:IMAGE */
+  #posts-table th:nth-child(1),
+  #posts-table td:nth-child(1) {
+    display: none;
+  }
+
+  #posts-table th,
+  #posts-table td {
+    font-size: 0.75rem;
+    padding: 0.5rem;
+  }
+  #admin-panel {
+    padding: 1rem;
+  }
+
+  #posts-table thead {
+    display: none;
+  }
+
+  #posts-table,
+  #posts-table tbody,
+  #posts-table tr,
+  #posts-table td {
+    display: block;
+    width: 100%;
+  }
+
+  #posts-table tr {
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+  }
+
+  #posts-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  #posts-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-right: 1rem;
+    white-space: nowrap;
+  }
+
+  #posts-table img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  .delete-btn,
+  .edit-btn {
+    width: 48%;
+  }
+}

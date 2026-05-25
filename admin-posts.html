@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Posts - EchoSpace</title>
+    <link rel="stylesheet" href="admin-posts.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+  <body>
+    <!-- admin password -->
+    <div id="password-gate">
+      <h2>Admin Login</h2>
+      <input type="password" id="password-input" placeholder="Enter password" />
+      <button id="login-btn">Login</button>
+      <p id="login-error"></p>
+    </div>
+
+    <!-- Posts List -->
+    <div id="admin-panel">
+      <div id="admin-header">
+        <h2>All Posts</h2>
+        <a href="admin.html"
+          ><button id="create-post-btn">+ Create Post</button></a
+        >
+      </div>
+      <table id="posts-table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="posts-table-body"></tbody>
+      </table>
+    </div>
+
+    <script src="supabase.js"></script>
+    <script src="admin-posts.js"></script>
+  </body>
+</html>
