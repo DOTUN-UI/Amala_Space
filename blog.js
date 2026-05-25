@@ -1,50 +1,29 @@
-const darkModeBtn = document.createElement("button");
-darkModeBtn.innerText = "🌙";
-darkModeBtn.id = "darkModeToggle";
-document.querySelector("nav").appendChild(darkModeBtn);
-
-darkModeBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-  if (document.body.classList.contains("dark-mode")) {
-    darkModeBtn.innerText = "☀️";
-  } else {
-    darkModeBtn.innerText = "🌙";
-  }
-});
-
 async function getPosts(genre = "all") {
-  console.log("getPosts called with genre:", genre);
-
   const container = document.getElementById("blogs-container");
-  console.log("container:", container);
-
   container.innerHTML = '<p id="loading">Loading posts...</p>';
-
+  
   let query = supabaseClient
     .from("posts")
     .select("*")
     .order("created_at", { ascending: false });
-
+  
   if (genre !== "all") {
     query = query.eq("genre", genre);
   }
-
+  
   const { data, error } = await query;
-
-  console.log("data:", data);
-  console.log("error:", error);
-
+  
   if (error) {
     console.error(error);
     container.innerHTML = "<p>Failed to load posts</p>";
     return;
   }
-
+  
   if (data.length === 0) {
     container.innerHTML = "<p>No posts found</p>";
     return;
   }
-
+  
   container.innerHTML = data
     .map(
       (post) => `
@@ -60,20 +39,22 @@ async function getPosts(genre = "all") {
   `,
     )
     .join("");
+
+  const cards = document.querySelectorAll(".blog-card");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 },
+  );
+  cards.forEach((card) => observer.observe(card));
 }
-const cards = document.querySelectorAll(".blog-card");
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.15 },
-);
-cards.forEach((card) => observer.observe(card));
+
 // Filter buttons
 document.querySelectorAll(".filter-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
