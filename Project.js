@@ -154,4 +154,6 @@ async function getPosts() {
   cards.forEach((card) => observer.observe(card));
 }
 
-getPosts();
+if (typeof supabaseClient !== 'undefined') {
+  getPosts();
+}
